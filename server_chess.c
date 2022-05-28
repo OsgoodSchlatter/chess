@@ -20,6 +20,7 @@ typedef struct {
   
   struct sockaddr_in  addr ;
   int  sock ;
+  int color;
   char pseudo [ PSEUDOLEN ] ;
   pthread_t threadId ;
   bool to_play;
@@ -1052,7 +1053,16 @@ void * client_thread_handler ( void * threadArg)
 	int index ;
 	int ret ;
 	
+        printf("x.color = %d\n",descriptorList[0].color);
+        if(descriptorList[0].color == 0){
+
 		descriptorList[0].to_play = true;
+        descriptorList[1].to_play = false;
+        }
+        else {
+            descriptorList[0].to_play = false;
+            descriptorList[1].to_play = true;
+        }
 
 	printf (" clientSock number %d \n", clientSock ) ;
 	while ( 1 ) 

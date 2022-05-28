@@ -19,12 +19,15 @@
 # define MYMSGLEN   2048
 # define PSEUDOLEN    12
 
+char color[7];
+
 typedef struct {
   
   int sock ;
   int lines ;
   int columns ;
   char pseudo [ PSEUDOLEN ] ;
+  int color;
 } threadAttrType ;
 
 void get_window_attr ( int * lines, int *columns )
@@ -247,8 +250,8 @@ void * handle_command ( void * theAttr )
 	    snprintf ( param, 5, "%d;%d",   attr->lines - 3, 1 ) ;
 	    // positionneCur(param) ;
 	    
-		
-	    printf ( "Please type ur next move with format \"a2,b2\":" ) ;
+		printf("color = %s\n", color);
+	    printf ( "Please type ur next move with format \"a2,b2\" \n(where a2=pos of your piece, b2= target position):" ) ;
 
 		 fflush(stdout) ;
 	    item = scanf ( "%[^\n]%*c", string ) ;  //reads a hole line till a new line feed
@@ -314,6 +317,7 @@ void * sock_sending_thread_handler ( void * theAttr )
 	    memset ( string, 0, sizeof( string ) ) ;
 	    memset ( buffer, 0, sizeof( buffer ) ) ;
 	    memset ( param, 0, sizeof (param) ) ;
+		
 	    // snprintf ( param, 5, "%d;%d",   attr->lines - 3, 1 ) ;
 	    // positionneCur(param) ;
 	    // effaceLigneCourante ; 
@@ -353,13 +357,8 @@ void * sock_sending_thread_handler ( void * theAttr )
 
 	    // Ask the question and wait for the answer.
 	    // Send the string of characters.
-	    
-
-
 
 	    sprintf ( buffer, "%s# says : %s ", attr->pseudo, string );
-
-
         
 
 
@@ -394,13 +393,28 @@ int main ( int argc, char * argv [ ] )
 	
 	// Connect to the server.
 	int sock ;
-	if ( argc < 2 )
+	if ( argc < 3 )
 	  {
-	    printf ( " Missing username \n " ) ;
+	    printf ( " Missing <username> <color> (color = white or black)\n " ) ;
 	    printf ( " Usage: %s <username> \n", argv[ 0 ] );
 	    exit ( 0 ) ;
 	  }
 	snprintf ( attr.pseudo, 12, "%s", argv [ 1 ] ) ;
+	snprintf(color,10,"%s", argv[2] );
+
+	printf("color = %s\n", color);
+
+	if(strncmp(color,"black",5)==0){
+		attr.color=1;
+	}
+	else if(strncmp(color,"white",5)==0){
+		attr.color=0;
+	}
+	else {
+		printf("wrong color; enter 'black' or 'write'\n");
+		exit ( 0 ) ;
+	}
+	
 	
 	sock = connecting ( ) ;
 	attr.sock = sock ;
