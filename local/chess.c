@@ -3,44 +3,47 @@
 #include "stdio.h"
 #include "stdbool.h"
 
-// int board[12][12] = {
-//     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1
-//     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1
-//     {-1, -1, 4, 6, 8, 10, 12, 8, 6, 4, -1, -1},       // ligne 0
-//     {-1, -1, 2, 2, 2, 2, 2, 2, 2, 2, -1, -1},         // ligne 1
-//     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 2
-//     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 3
-//     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 4
-//     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 5
-//     {-1, -1, 3, 3, 3, 3, 3, 3, 3, 3, -1, -1},         // ligne 6
-//     {-1, -1, 5, 7, 9, 11, 13, 9, 7, 5, -1, -1},       // ligne 7
-//     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1
-//     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}  // ligne -1
-
-// };
-
 int board[12][12] = {
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1
-    {-1, -1, 4, 0, 0, 12, 0, 0, 0, 0, -1, -1},        // ligne 0
-    {-1, -1, 2, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 1
-    {-1, -1, 0, 0, 0, 0, 11, 0, 0, 0, -1, -1},        // ligne 2
+    {-1, -1, 4, 0, 0, 0, 12, 0, 0, 4, -1, -1},        // ligne 0
+    {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 1
+    {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 2
     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 3
-    {-1, -1, 0, 0, 0, 0, 0, 9, 0, 0, -1, -1},         // ligne 4
-    {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 5
-    {-1, -1, 3, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 6
-    {-1, -1, 9, 0, 0, 0, 13, 0, 0, 0, -1, -1},        // ligne 7
+    {-1, -1, 4, 0, 0, 0, 12, 0, 0, 0, -1, -1},        // ligne 4
+    {-1, -1, 5, 0, 0, 0, 13, 0, 0, 0, -1, -1},        // ligne 5
+    {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 6
+    {-1, -1, 5, 0, 0, 0, 0, 0, 0, 5, -1, -1},         // ligne 7
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}  // ligne -1
-
 };
+
+// int board[12][12] = {
+//     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1   // ligne0
+//     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1   // ligne1
+//     {-1, -1, 4, 6, 8, 10, 12, 8, 6, 4, -1, -1},       // ligne 0    // ligne2
+//     {-1, -1, 2, 2, 2, 2, 2, 2, 2, 2, -1, -1},         // ligne 1    // ligne3
+//     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 2    // ligne4
+//     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 3    // ligne5
+//     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 4    // ligne6
+//     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 5    // ligne7
+//     {-1, -1, 3, 3, 3, 3, 3, 3, 3, 3, -1, -1},         // ligne 6    // ligne8
+//     {-1, -1, 5, 7, 9, 11, 13, 9, 7, 5, -1, -1},       // ligne 7    // ligne9
+//     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1   // ligne10
+//     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}  // ligne -1   // ligne11
+
+// };
 
 int playable_moves[12][12];
 
 bool white_to_play = true;
 
-bool black_is_in_check = false;
-bool white_is_in_check = false;
+bool black_king_has_moved = false;
+bool white_king_has_moved = false;
+bool black_rook_has_moved_king_side = false;
+bool white_rook_has_moved_king_side = false;
+bool black_rook_has_moved_queen_side = false;
+bool white_rook_has_moved_queen_side = false;
 
 void print_piece(int i, int j)
 {
@@ -808,7 +811,7 @@ int *next_move_char_to_num(char *params)
 
     char *from = strtok(params, d);
     char *to = strtok(NULL, e);
-    printf("pos1 = %s, pos2 = %s\n", from, to);
+    // printf("pos1 = %s, pos2 = %s\n", from, to);
 
     int line_from, column_from;
     int line_to, column_to;
@@ -1068,9 +1071,269 @@ bool is_legal_check(int line_to, int col_to)
     }
 }
 
+bool path_is_clear_between_r_and_k(int *pos)
+{
+    // castle queen side (POS[3] = 1, pos[1] = 5)
+    if ((pos[1] - pos[3]) == 4)
+    {
+        if (white_to_play)
+        {
+            for (int i = pos[3] + 1; i < pos[1]; i++)
+            {
+
+                // first line of white is line 9 of board
+                if (board[9][i + 2] != 0)
+                {
+                    return false;
+                }
+            }
+        }
+        // if black to play
+        else
+        {
+            for (int i = pos[3] + 1; i < pos[1]; i++)
+            {
+                // first line of black is line 2 of board
+                if (board[2][i + 2] != 0)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    // castle king side
+    if ((pos[3] - pos[1]) == 3)
+    {
+        if (white_to_play)
+        {
+            for (int i = pos[1] + 1; i < pos[3]; i++)
+            {
+                // first line of white is line 9 of board
+                if (board[9][i + 2] != 0)
+                {
+                    return false;
+                }
+            }
+        }
+        else
+        {
+            for (int i = pos[1] + 1; i < pos[3]; i++)
+            {
+                // first line of black is line 2 of board
+                if (board[2][i + 2] != 0)
+                {
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
+bool no_checks_on_the_path(int *pos)
+{
+
+    // king side
+    if ((pos[3] - pos[1]) == 3)
+    {
+        if (white_to_play)
+        {
+            for (int i = 2; i < 10; i++)
+            {
+                for (int j = 2; j < 10; j++)
+                {
+                    if (board[i][j] % 2 == 0 && board[i][j] != 0)
+                    {
+                        next_move(i - 2, j - 2);
+
+                        // king side for white
+                        for (int k = pos[1]; k < pos[3]; k++)
+                        {
+                            // first line for whites is 2nd line for playable_moves
+                            if (playable_moves[9][k + 2] == 1 || playable_moves[9][k + 2] == 2)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+        // black to play
+        else
+        {
+            for (int i = 2; i < 10; i++)
+            {
+                for (int j = 2; j < 10; j++)
+                {
+                    if (board[i][j] % 2 == 1)
+                    {
+                        next_move(i - 2, j - 2);
+
+                        // king side for black
+                        for (int k = pos[1]; k < pos[3]; k++)
+                        {
+                            // first line for blacks is 2nd line for playable_moves
+                            if (playable_moves[2][k + 2] == 1 || playable_moves[2][k + 2] == 2)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+    }
+    // queen side
+    else if ((pos[1] - pos[3]) == 4)
+    {
+
+        if (white_to_play)
+        {
+            for (int i = 2; i < 10; i++)
+            {
+                for (int j = 2; j < 10; j++)
+                {
+                    if (board[i][j] % 2 == 0 && board[i][j] != 0)
+                    {
+                        next_move(i - 2, j - 2);
+
+                        // queen side for white
+                        // only two cases next to  king need to be checked
+                        for (int k = pos[3] + 2; k < pos[1] + 1; k++)
+                        {
+                            // first line for whites is 2nd line for playable_moves
+                            if (playable_moves[9][k + 2] == 1 || playable_moves[9][k + 2] == 2)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+        // black to play
+        else
+        {
+            for (int i = 2; i < 10; i++)
+            {
+                for (int j = 2; j < 10; j++)
+                {
+                    if (board[i][j] % 2 == 1)
+                    {
+                        next_move(i - 2, j - 2);
+
+                        // king side for black
+                        for (int k = pos[3] + 2; k < pos[1] + 1; k++)
+                        {
+                            // first line for blacks is 2nd line for playable_moves
+                            if (playable_moves[2][k + 2] == 1 || playable_moves[2][k + 2] == 2)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
+    return false;
+}
+
+bool move_is_castling(int *pos)
+{
+    return ((board[pos[0] + 2][pos[1] + 2] == 13 && board[pos[2] + 2][pos[3] + 2] == 5) || (board[pos[0] + 2][pos[1] + 2] == 12 && board[pos[2] + 2][pos[3] + 2] == 4));
+}
+
+bool move_is_castling_and_is_legal(int *pos)
+{
+    // check wether we're actually taking king and rook as targets
+    printf("here2\n");
+    // check wether we're at the first line
+    if (pos[0] == 0 || pos[0] == 7)
+    {
+        printf("here3\n");
+
+        // check wether the path is clear between king and rook
+        if (path_is_clear_between_r_and_k(pos))
+        {
+            printf("here4\n");
+
+            // check wether there's no check on the path between rook and king
+            if (no_checks_on_the_path(pos))
+            {
+                // queen side
+                if ((pos[1] - pos[3]) == 4)
+                {
+
+                    if (white_to_play)
+                    {
+                        // these booleans are set by default at false
+                        // if they're both false, !false && !false == true && true == true
+                        // otherwise, it fails
+                        return !white_king_has_moved && !white_rook_has_moved_queen_side;
+                    }
+                    else
+                        return !black_king_has_moved && !black_rook_has_moved_queen_side;
+                }
+                else
+                {
+                    if (white_to_play)
+                    {
+                        return !white_king_has_moved && !white_rook_has_moved_king_side;
+                    }
+                    else
+                    {
+                        return !black_king_has_moved && !black_rook_has_moved_king_side;
+                    }
+                }
+            }
+            else
+                return false;
+        }
+        else
+            return false;
+    }
+    else
+        return false;
+}
+
 bool check_color(int line, int col)
 {
     return ((board[line + 2][col + 2] % 2 == 1 && white_to_play) || (board[line + 2][col + 2] % 2 == 0 && !white_to_play));
+}
+
+void store_if_rook_or_king_has_moved(int *pos)
+{
+    // white
+    // queen side
+    if (board[pos[2] + 2][pos[3] + 2] == 5 && pos[1] == 0)
+        white_rook_has_moved_queen_side = true;
+    // king side
+    if (board[pos[2] + 2][pos[3] + 2] == 5 && pos[1] == 7)
+        white_rook_has_moved_king_side = true;
+
+    if (board[pos[2] + 2][pos[3] + 2] == 13)
+        white_king_has_moved = true;
+
+    // black
+
+    // queen side
+    if (board[pos[2] + 2][pos[3] + 2] == 4 && pos[1] == 0)
+        black_rook_has_moved_queen_side = true;
+    // king side
+    if (board[pos[2] + 2][pos[3] + 2] == 4 && pos[1] == 7)
+        black_rook_has_moved_king_side = true;
+
+    if (board[pos[2] + 2][pos[3] + 2] == 12)
+        black_king_has_moved = true;
+
+    printf("w-qs:%d w-ks:%d, w-k:%d, b-qs:%d, b-ks:%d, b-k:%d\n", white_rook_has_moved_queen_side ? 1 : 0, white_rook_has_moved_king_side ? 1 : 0, white_king_has_moved ? 1 : 0, black_rook_has_moved_queen_side ? 1 : 0, black_rook_has_moved_king_side ? 1 : 0, black_king_has_moved ? 1 : 0);
 }
 
 void play_next_move_local()
@@ -1085,44 +1348,104 @@ void play_next_move_local()
     {
         print_board();
     choix:
+        // choosing what to play
         printf("%s", white_to_play ? "Please enter White's move: (format: <a3,g6>)\n" : " Please enter Black's move: (format: <a3,g6>)\n");
         scanf("%s", params);
+        // receiving positions
         pos = next_move_char_to_num(params);
+        // calculating all moves for the chosen piece
         next_move(pos[0], pos[1]);
-        // printf("%d\n", playable_moves[pos[2] + 2][pos[3] + 2]);
-
         if (check_color(pos[0], pos[1]))
         {
+            // castle move part
 
+            if (move_is_castling(pos))
+            {
+                printf("hereeeee\n");
+
+                if (move_is_castling_and_is_legal(pos))
+                {
+                    if (white_to_play)
+                    {
+                        // queen side
+                        if ((pos[1] - pos[3]) == 4)
+                        {
+                            board[pos[0] + 2][pos[1] + 2] = 0;
+                            board[pos[2] + 2][pos[3] + 2] = 0;
+                            board[pos[0] + 2][pos[1]] = 13;
+                            board[pos[0] + 2][pos[1] + 1] = 5;
+                        }
+                        else
+                        {
+                            board[pos[0] + 2][pos[1] + 2] = 0;
+                            board[pos[2] + 2][pos[3] + 2] = 0;
+                            board[pos[0] + 2][pos[1] + 4] = 13;
+                            board[pos[0] + 2][pos[1] + 3] = 5;
+                        }
+                    }
+                    else
+                    {
+                        // queen side
+                        if ((pos[1] - pos[3]) == 4)
+                        {
+                            board[pos[0] + 2][pos[1] + 2] = 0;
+                            board[pos[2] + 2][pos[3] + 2] = 0;
+                            board[pos[0] + 2][pos[1]] = 12;
+                            board[pos[0] + 2][pos[1] + 1] = 4;
+                        }
+                        else
+                        {
+                            board[pos[0] + 2][pos[1] + 2] = 0;
+                            board[pos[2] + 2][pos[3] + 2] = 0;
+                            board[pos[0] + 2][pos[1] + 4] = 12;
+                            board[pos[0] + 2][pos[1] + 3] = 4;
+                        }
+                    }
+                    goto legal;
+                }
+                else
+                {
+                    goto not_legal;
+                }
+            }
+            else
+            {
+                goto other_move;
+            }
+
+        // other moves part
+        // here since hte position the user wants to go is either 1 or 2 (so free or taken by another piece)
+        // we can continue
+        other_move:
             if ((playable_moves[pos[2] + 2][pos[3] + 2] == 1 || playable_moves[pos[2] + 2][pos[3] + 2] == 2))
             {
-                system("clear");
+                // system("clear");
                 tmp_1 = board[pos[2] + 2][pos[3] + 2];
                 tmp_2 = board[pos[0] + 2][pos[1] + 2];
                 board[pos[2] + 2][pos[3] + 2] = board[pos[0] + 2][pos[1] + 2];
                 board[pos[0] + 2][pos[1] + 2] = 0;
-                if (is_legal_check(pos[2], pos[3]))
+                // here we check if this new position is okay, ie it doesnt let or put or king in check;
+                if (!is_legal_check(pos[2], pos[3]))
                 {
-                    printf(" legal\n");
-                    white_to_play = !white_to_play;
-                    continue;
-                }
-                else
-                {
-                    printf("not legal\n");
-                    // since the move is illegal, we move back the pieces
+                    // entering this if means that the move wasnt legal
+                    // we reset the positions since it is not legal
                     board[pos[2] + 2][pos[3] + 2] = tmp_1;
                     board[pos[0] + 2][pos[1] + 2] = tmp_2;
                     goto not_legal;
                 }
-                print_next_move();
-                printf("OK\n");
+                // legal part
+
+                // here we check if either any rook or king has moved
+                store_if_rook_or_king_has_moved(pos);
+                // we switch to the other color since the move has been accepted
+            legal:
+                white_to_play = !white_to_play;
                 print_board();
             }
             else
             {
             not_legal:
-                system("clear");
+                // system("clear");
                 print_board();
                 printf("Not a legal move, try again\n");
                 goto choix;
@@ -1130,10 +1453,10 @@ void play_next_move_local()
         }
         else
         {
-            system("clear");
+            // entering here means that either color has played twice in a row
+            // system("clear");
             print_board();
             printf("%s\n", white_to_play ? "Sorry, White to play\n" : "Sorry, Black to play\n");
-
             goto choix;
         }
     }
@@ -1141,7 +1464,5 @@ void play_next_move_local()
 
 int main()
 {
-    printf("board[%d][%d]=%d\n", 0, 0, board[0][0]);
-    printf("board[%d][%d]=%d\n", 2, 2, board[2][2]);
     play_next_move_local();
 }

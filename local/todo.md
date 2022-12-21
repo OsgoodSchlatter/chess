@@ -1,3 +1,3 @@
 # 18 dec
 
-if the king is on the next tile of the queen, it can escape check by moving on the side
+do the castling part but for both white and black with functions like path clear.
