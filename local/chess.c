@@ -3,17 +3,33 @@
 #include "stdio.h"
 #include "stdbool.h"
 
+// -1 not reachable
+// 0 is empty tile
+// 1 is nothing
+// 2 is blakc pawn
+// 3 white pawn
+// 4 black rook
+// 5 white rook
+// 6 black knight
+// 7 white knight
+// 8 black bishop
+// 9 white bishop
+// 10 black queen
+// 11 white queen
+// 12 black king
+// 13 white king
+
 int board[12][12] = {
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1
     {-1, -1, 4, 0, 0, 0, 12, 0, 0, 4, -1, -1},        // ligne 0
-    {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 1
+    {-1, -1, 0, 3, 0, 0, 3, 0, 0, 0, -1, -1},         // ligne 1
     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 2
     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 3
-    {-1, -1, 4, 0, 0, 0, 12, 0, 0, 0, -1, -1},        // ligne 4
-    {-1, -1, 5, 0, 0, 0, 13, 0, 0, 0, -1, -1},        // ligne 5
-    {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 6
-    {-1, -1, 5, 0, 0, 0, 0, 0, 0, 5, -1, -1},         // ligne 7
+    {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 4
+    {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 5
+    {-1, -1, 0, 2, 0, 0, 0, 0, 0, 2, -1, -1},         // ligne 6
+    {-1, -1, 5, 0, 5, 0, 13, 0, 0, 5, -1, -1},        // ligne 7
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1
     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}  // ligne -1
 };
@@ -100,7 +116,6 @@ void print_board()
     {
         for (int j = 0; j < 10; j++)
         {
-
             print_piece(i, j);
         }
         printf("\n");
@@ -113,7 +128,6 @@ void next_move_black_pawn(int line, int column)
 
     if (line == 3 && board[line + 1][column] == 0 && board[line + 2][column] == 0)
     {
-
         playable_moves[line + 1][column] = 1;
         playable_moves[line + 2][column] = 1;
     }
@@ -125,14 +139,12 @@ void next_move_black_pawn(int line, int column)
     {
         playable_moves[line + 1][column] = 1;
     }
-
     if (board[line + 1][column - 1] % 2 == 1)
     {
         playable_moves[line + 1][column - 1] = 2;
     }
     if (board[line + 1][column + 1] % 2 == 1)
     {
-
         playable_moves[line + 1][column + 1] = 2;
     }
 }
@@ -141,7 +153,6 @@ void next_move_white_pawn(int line, int column)
 {
     if (line == 8 && board[line - 1][column] == 0 && board[line - 2][column] == 0)
     {
-
         playable_moves[line - 1][column] = 1;
         playable_moves[line - 2][column] = 1;
     }
@@ -153,14 +164,12 @@ void next_move_white_pawn(int line, int column)
     {
         playable_moves[line - 1][column] = 1;
     }
-
     if (board[line - 1][column - 1] % 2 == 0 && board[line - 1][column - 1] > 0)
     {
         playable_moves[line - 1][column - 1] = 2;
     }
     if (board[line - 1][column + 1] % 2 == 0 && board[line - 1][column + 1] > 0)
     {
-
         playable_moves[line - 1][column + 1] = 2;
     }
 }
@@ -175,7 +184,6 @@ void next_move_black_rook(int line, int column)
     while (board[line][column + 1] == 0)
     {
         playable_moves[line][column + 1] = 1;
-
         column++;
     }
     // case found is an opposite piece
@@ -1253,24 +1261,18 @@ bool move_is_castling(int *pos)
 bool move_is_castling_and_is_legal(int *pos)
 {
     // check wether we're actually taking king and rook as targets
-    printf("here2\n");
     // check wether we're at the first line
     if (pos[0] == 0 || pos[0] == 7)
     {
-        printf("here3\n");
-
         // check wether the path is clear between king and rook
         if (path_is_clear_between_r_and_k(pos))
         {
-            printf("here4\n");
-
             // check wether there's no check on the path between rook and king
             if (no_checks_on_the_path(pos))
             {
                 // queen side
                 if ((pos[1] - pos[3]) == 4)
                 {
-
                     if (white_to_play)
                     {
                         // these booleans are set by default at false
@@ -1333,7 +1335,23 @@ void store_if_rook_or_king_has_moved(int *pos)
     if (board[pos[2] + 2][pos[3] + 2] == 12)
         black_king_has_moved = true;
 
-    printf("w-qs:%d w-ks:%d, w-k:%d, b-qs:%d, b-ks:%d, b-k:%d\n", white_rook_has_moved_queen_side ? 1 : 0, white_rook_has_moved_king_side ? 1 : 0, white_king_has_moved ? 1 : 0, black_rook_has_moved_queen_side ? 1 : 0, black_rook_has_moved_king_side ? 1 : 0, black_king_has_moved ? 1 : 0);
+    // printf("w-qs:%d w-ks:%d, w-k:%d, b-qs:%d, b-ks:%d, b-k:%d\n", white_rook_has_moved_queen_side ? 1 : 0, white_rook_has_moved_king_side ? 1 : 0, white_king_has_moved ? 1 : 0, black_rook_has_moved_queen_side ? 1 : 0, black_rook_has_moved_king_side ? 1 : 0, black_king_has_moved ? 1 : 0);
+}
+
+bool move_is_promotion(int *pos)
+{
+    if (white_to_play)
+    {
+        if (pos[2] == 0 && board[pos[0] + 2][pos[1] + 2] == 3 && (board[pos[2] + 2][pos[3] + 2] == 0 || (board[pos[2] + 2][pos[3] + 2] % 2 == 0 && board[pos[2] + 2][pos[3] + 2] != 0)))
+            return true;
+        return false;
+    }
+    else
+    {
+        if (pos[2] == 7 && board[pos[0] + 2][pos[1] + 2] == 2 && (board[pos[2] + 2][pos[3] + 2] == 0 || (board[pos[2] + 2][pos[3] + 2] % 2 == 1)))
+            return true;
+        return false;
+    }
 }
 
 void play_next_move_local()
@@ -1361,8 +1379,6 @@ void play_next_move_local()
 
             if (move_is_castling(pos))
             {
-                printf("hereeeee\n");
-
                 if (move_is_castling_and_is_legal(pos))
                 {
                     if (white_to_play)
@@ -1414,12 +1430,46 @@ void play_next_move_local()
             }
 
         // other moves part
-        // here since hte position the user wants to go is either 1 or 2 (so free or taken by another piece)
-        // we can continue
         other_move:
             if ((playable_moves[pos[2] + 2][pos[3] + 2] == 1 || playable_moves[pos[2] + 2][pos[3] + 2] == 2))
             {
-                // system("clear");
+                system("clear");
+                if (move_is_promotion(pos))
+                {
+                    tmp_1 = board[pos[2] + 2][pos[3] + 2];
+                    tmp_2 = board[pos[0] + 2][pos[1] + 2];
+                    if (white_to_play)
+                    {
+
+                        board[pos[2] + 2][pos[3] + 2] = 11;
+                        board[pos[0] + 2][pos[1] + 2] = 0;
+
+                        if (!is_legal_check(pos[2], pos[3]))
+                        {
+                            // entering this if means that the move wasnt legal
+                            // we reset the positions since it is not legal
+                            board[pos[2] + 2][pos[3] + 2] = tmp_1;
+                            board[pos[0] + 2][pos[1] + 2] = tmp_2;
+                            goto not_legal;
+                        }
+                    }
+                    else
+                    {
+
+                        board[pos[2] + 2][pos[3] + 2] = 10;
+                        board[pos[0] + 2][pos[1] + 2] = 0;
+
+                        if (!is_legal_check(pos[2], pos[3]))
+                        {
+                            // entering this if means that the move wasnt legal
+                            // we reset the positions since it is not legal
+                            board[pos[2] + 2][pos[3] + 2] = tmp_1;
+                            board[pos[0] + 2][pos[1] + 2] = tmp_2;
+                            goto not_legal;
+                        }
+                    }
+                    goto legal;
+                }
                 tmp_1 = board[pos[2] + 2][pos[3] + 2];
                 tmp_2 = board[pos[0] + 2][pos[1] + 2];
                 board[pos[2] + 2][pos[3] + 2] = board[pos[0] + 2][pos[1] + 2];
@@ -1454,7 +1504,7 @@ void play_next_move_local()
         else
         {
             // entering here means that either color has played twice in a row
-            // system("clear");
+            system("clear");
             print_board();
             printf("%s\n", white_to_play ? "Sorry, White to play\n" : "Sorry, Black to play\n");
             goto choix;
