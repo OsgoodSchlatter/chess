@@ -19,36 +19,36 @@
 // 12 black king
 // 13 white king
 
-int board[12][12] = {
-    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1
-    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1
-    {-1, -1, 4, 0, 0, 0, 12, 0, 0, 4, -1, -1},        // ligne 0
-    {-1, -1, 0, 3, 0, 0, 3, 0, 0, 0, -1, -1},         // ligne 1
-    {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 2
-    {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 3
-    {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 4
-    {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 5
-    {-1, -1, 0, 2, 0, 0, 0, 0, 0, 2, -1, -1},         // ligne 6
-    {-1, -1, 5, 0, 5, 0, 13, 0, 0, 5, -1, -1},        // ligne 7
-    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1
-    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}  // ligne -1
-};
-
 // int board[12][12] = {
-//     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1   // ligne0
-//     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1   // ligne1
-//     {-1, -1, 4, 6, 8, 10, 12, 8, 6, 4, -1, -1},       // ligne 0    // ligne2
-//     {-1, -1, 2, 2, 2, 2, 2, 2, 2, 2, -1, -1},         // ligne 1    // ligne3
-//     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 2    // ligne4
-//     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 3    // ligne5
-//     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 4    // ligne6
-//     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 5    // ligne7
-//     {-1, -1, 3, 3, 3, 3, 3, 3, 3, 3, -1, -1},         // ligne 6    // ligne8
-//     {-1, -1, 5, 7, 9, 11, 13, 9, 7, 5, -1, -1},       // ligne 7    // ligne9
-//     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1   // ligne10
-//     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}  // ligne -1   // ligne11
-
+//     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1
+//     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1
+//     {-1, -1, 0, 0, 0, 0, 12, 0, 0, 0, -1, -1},        // ligne 0
+//     {-1, -1, 0, 0, 0, 0, 3, 0, 0, 0, -1, -1},         // ligne 1
+//     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 2
+//     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 3
+//     {-1, -1, 0, 0, 0, 0, 0, 11, 0, 0, -1, -1},        // ligne 4
+//     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 5
+//     {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 6
+//     {-1, -1, 0, 0, 0, 0, 13, 0, 0, 0, -1, -1},        // ligne 7
+//     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1
+//     {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}  // ligne -1
 // };
+
+int board[12][12] = {
+    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1   // ligne0
+    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1   // ligne1
+    {-1, -1, 4, 6, 8, 10, 12, 8, 6, 4, -1, -1},       // ligne 0    // ligne2
+    {-1, -1, 2, 2, 2, 2, 2, 2, 2, 2, -1, -1},         // ligne 1    // ligne3
+    {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 2    // ligne4
+    {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 3    // ligne5
+    {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 4    // ligne6
+    {-1, -1, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1},         // ligne 5    // ligne7
+    {-1, -1, 3, 3, 3, 3, 3, 3, 3, 3, -1, -1},         // ligne 6    // ligne8
+    {-1, -1, 5, 7, 9, 11, 13, 9, 7, 5, -1, -1},       // ligne 7    // ligne9
+    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, // ligne -1   // ligne10
+    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}  // ligne -1   // ligne11
+
+};
 
 int playable_moves[12][12];
 
@@ -808,6 +808,7 @@ void print_next_move()
         }
         printf("\n");
     }
+    printf("\n\n");
 }
 
 int *next_move_char_to_num(char *params)
@@ -985,6 +986,7 @@ int *next_move_char_to_num(char *params)
 }
 
 // check wether the player's king is in check once the move is done
+// returns true if the move is legal ie the king is not in check after the move is done
 bool is_legal_check(int line_to, int col_to)
 {
 
@@ -1015,15 +1017,8 @@ bool is_legal_check(int line_to, int col_to)
                 // check adverse pieces
                 if (board[l][c] % 2 == 0 && board[l][c] != 0)
                 {
-                    printf("piece is : \n");
-                    print_piece(l, c);
-                    printf("\n\n");
                     next_move(l - 2, c - 2);
-                    print_next_move();
-                    printf("playable move : %d\n", playable_moves[adv_king_pos[0]][adv_king_pos[1]]);
-                    printf("\n\n");
                     // check if king is in ennemy's scope
-
                     if (playable_moves[adv_king_pos[0]][adv_king_pos[1]] == 2)
                     {
                         printf("king is in ennemy scope, %d\n", playable_moves[adv_king_pos[0]][adv_king_pos[1]]);
@@ -1354,6 +1349,48 @@ bool move_is_promotion(int *pos)
     }
 }
 
+bool check_if_checkmate(bool turn)
+{
+    int tmp_1, tmp_2;
+
+    int index = turn ? 1 : 0;
+
+    for (int i = 2; i < 10; i++)
+    {
+        for (int j = 2; j < 10; j++)
+        {
+            if (board[i][j] % 2 == index && board[i][j] != 0)
+            {
+                next_move(i, j);
+                for (int k = 2; k < 10; k++)
+                {
+                    for (int l = 2; l < 10; l++)
+                    {
+                        print_next_move();
+
+                        if (playable_moves[k][l] == 1 || playable_moves[k][l] == 2)
+                        {
+                            printf("hey\n");
+                            tmp_1 = board[k][l];
+                            tmp_2 = board[i][j];
+                            board[k][l] = board[i][j];
+                            board[i][j] = 0;
+                            if (is_legal_check(k, l))
+                            {
+                                // no checkmate
+                                return false;
+                            }
+                        }
+                        board[i][j] = tmp_2;
+                        board[k][l] = tmp_1;
+                    }
+                }
+            }
+        }
+    }
+    return true;
+}
+
 void play_next_move_local()
 {
     int *pos;
@@ -1365,6 +1402,12 @@ void play_next_move_local()
     while (1)
     {
         print_board();
+        // if (check_if_checkmate(white_to_play))
+        // {
+        //     printf("%s has won by checkmate !\n", white_to_play ? "White" : "Black");
+        //     exit(1);
+        // };
+
     choix:
         // choosing what to play
         printf("%s", white_to_play ? "Please enter White's move: (format: <a3,g6>)\n" : " Please enter Black's move: (format: <a3,g6>)\n");
@@ -1470,6 +1513,7 @@ void play_next_move_local()
                     }
                     goto legal;
                 }
+
                 tmp_1 = board[pos[2] + 2][pos[3] + 2];
                 tmp_2 = board[pos[0] + 2][pos[1] + 2];
                 board[pos[2] + 2][pos[3] + 2] = board[pos[0] + 2][pos[1] + 2];
@@ -1495,7 +1539,7 @@ void play_next_move_local()
             else
             {
             not_legal:
-                // system("clear");
+                system("clear");
                 print_board();
                 printf("Not a legal move, try again\n");
                 goto choix;
